@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nesh Kumar, MBBS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f7f9; --surface:#ffffff; --ink:#0d2233; --muted:#4f6676; --line:#cfdce4;
+  --iris:#17797a; --iris-ink:#ffffff; --sclera:#fbfdfd; --pupil:#06131c;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#071722; --surface:#0d2432; --ink:#e8f1f5; --muted:#9bb3c1; --line:#1d3a4b;
+    --iris:#46c7c1; --iris-ink:#042226; --sclera:#e9f2f5; --pupil:#020b11; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#071722; --surface:#0d2432; --ink:#e8f1f5; --muted:#9bb3c1; --line:#1d3a4b;
+  --iris:#46c7c1; --iris-ink:#042226; --sclera:#e9f2f5; --pupil:#020b11; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--iris);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{color:var(--iris)}
+:focus-visible{outline:3px solid var(--iris);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:64px 0 56px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(3.2rem,8vw,6rem);line-height:.98;letter-spacing:-.025em;margin:0 0 18px;font-variation-settings:"opsz" 144}
+.degree{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--iris);margin:0 0 20px}
+.lede{font-size:1.1rem;color:var(--muted);max-width:34ch;margin:0 0 28px}
+.contacts{display:flex;flex-wrap:wrap;gap:10px}
+.contacts a{display:inline-block;padding:8px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;text-decoration:none;font-weight:500}
+.contacts a:hover{border-color:var(--iris);color:var(--ink)}
+.contacts span{display:inline-block;padding:8px 16px;font-size:.92rem;color:var(--muted)}
+.eye{width:100%;height:auto;display:block;touch-action:none;user-select:none;-webkit-user-select:none}
+.eye .pupil{transition:r .25s ease}
+.eye .iris{transition:transform .12s ease-out}
+
+/* sections */
+section{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:44px 0;border-top:1.5px solid var(--line)}
+section>h2{font-family:var(--serif);font-weight:600;font-size:1.55rem;margin:0;line-height:1.2;position:sticky;top:calc(20px + env(safe-area-inset-top,0px));align-self:start}
+.about{font-size:1.2rem;line-height:1.7;max-width:62ch;margin:0;font-family:var(--serif);font-weight:400}
+.item+.item{margin-top:44px}
+.item h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0}
+.item .org{color:var(--muted);margin:2px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted);font-size:.93rem;margin:6px 0 0}
+.item p.desc{margin:14px 0 0;max-width:62ch}
+
+/* rotation bar */
+.rot{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:20px 0 0;padding:0;list-style:none}
+.rot li{padding:14px 14px 12px;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;min-width:0}
+.rot b{display:block;font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.25}
+.rot small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+.rot li.focus{background:var(--iris);border-color:var(--iris);color:var(--iris-ink)}
+.rot li.focus small{color:inherit;opacity:.85}
+.rot-note{font-size:.88rem;color:var(--muted);margin:10px 0 0}
+
+/* certs */
+.cert{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.cert:first-child{padding-top:0}
+.cert:last-child{border-bottom:0;padding-bottom:0}
+.cert h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:0}
+.cert .org{color:var(--muted);font-size:.93rem;margin:0}
+.cert p.desc{grid-column:1;margin:6px 0 0;font-size:.95rem;color:var(--muted);max-width:60ch}
+.cert .side{grid-column:2;grid-row:1/span 2;text-align:right;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.cert .side a{display:block;color:var(--ink);font-weight:600;margin-top:4px}
+
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.skills li{padding:9px 18px;border-radius:999px;background:var(--surface);border:1.5px solid var(--line);font-weight:500;font-size:.98rem}
+
+footer{border-top:1.5px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:40px;gap:20px}
+  .hero .eye-wrap{order:-1;max-width:420px}
+  section{grid-template-columns:1fr;gap:18px;padding:36px 0}
+  section>h2{position:static}
+  .rot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .cert{grid-template-columns:1fr}
+  .cert .side{grid-column:1;grid-row:auto;text-align:left;white-space:normal;display:flex;gap:14px;flex-wrap:wrap}
+  .cert .side a{margin-top:0}
+}
+@media (prefers-reduced-motion:reduce){.eye .iris,.eye .pupil{transition:none}}
+</style>
+</head>
+<body>
+<script type="application/json" id="resume-data">{"basics":{"name":"Nesh Kumar","headline":"MBBS","email":"dr.nesh@proton.me","phone":"03363451985","location":"Larkana, Sindh, Pakistan","website":{"url":"","label":""},"customFields":[{"id":"01a0a8a5-fa70-735a-a670-90275720d711","icon":"linkedin-logo","text":"nesh-kumar-b1412a269","link":"https://www.linkedin.com/in/nesh-kumar-b1412a269/"}]},"summary":{"title":"","icon":"article","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"content":"<p data-resume-whitespace=\"preserve\">Medical Doctor with MBBS training and completed house job at Chandka Medical Hospital, with clinical experience in Ophthalmology, Cardiology, General Medicine, and General Surgery. Particularly interested in ophthalmology, with a strong motivation to develop expertise in the diagnosis and management of ocular diseases and the preservation of vision. Skilled in patient assessment, clinical decision-making, emergency management, and medical documentation, with additional strengths in clinical research, scientific writing, data analysis, and programming. Committed to evidence-based practice, continuous learning, and advancing patient care in ophthalmology.<\/p>"},"sections":{"profiles":{"title":"","icon":"messenger-logo","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"experience":{"title":"","icon":"briefcase","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[{"id":"01a17d70-09de-74b7-a2f8-00d080f0c526","hidden":false,"company":"Sindh Institute of Child Health & Neonatology (SICHN)","position":"Medical Officer","location":"Larkana, Sindh","period":"Sep 2026 – Present","dates":{"start":"2026-09","end":null,"present":true},"website":{"url":"","label":"","inlineLink":false},"description":"<p data-resume-whitespace=\"preserve\">responsible for assessing and managing critically ill neonates, monitoring clinical progress, providing neonatal resuscitation, assisting with respiratory support, managing medications and fluids, and maintaining accurate clinical documentation in coordination with the multidisciplinary team.<\/p>","roles":[]},{"id":"01a095be-ab04-76ee-9be7-04fe0c9b6bdf","hidden":false,"company":"Chandka Medical College Hospital","position":"House Officer","location":"Larkana, Sindh","period":"Jul 2025 – Jun 2026","dates":{"start":"2025-07","end":"2026-06","present":false},"website":{"url":"","label":"","inlineLink":false},"description":"<p><\/p>","roles":[{"id":"01a095bf-f5ea-7252-9004-c6c21e954baf","position":"Cardiology","period":"Jul 2025 – Sep 2025","dates":{"start":"2025-07","end":"2025-09","present":false},"description":""},{"id":"01a095c0-5a28-70bb-975c-9a9e72bd5f5c","position":"General Medicine","period":"Oct 2025 – Dec 2025","dates":{"start":"2025-10","end":"2025-12","present":false},"description":""},{"id":"01a095c0-cc00-75d4-89ea-ab37554994fc","position":"Ophthalmology","period":"Jan 2026 – Mar 2026","dates":{"start":"2026-01","end":"2026-03","present":false},"description":""},{"id":"01a095c0-ce75-75d3-9e3a-7e9e2af1af6b","position":"General Surgery","period":"Apr 2026 – Jun 2026","dates":{"start":"2026-04","end":"2026-06","present":false},"description":""}]}]},"education":{"title":"","icon":"graduation-cap","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[{"id":"01a095c1-8633-71b1-b849-f48681557c3f","hidden":false,"school":"Shaheed Mohtarma Benazir Bhutto Medical University Larkana","degree":"MBBS","area":"","grade":"72.72%","location":"","period":"2020 – 2025","dates":{"start":"2020","end":"2025","present":false},"website":{"url":"","label":"","inlineLink":false},"description":""}]},"projects":{"title":"","icon":"code-simple","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"skills":{"title":"","icon":"compass-tool","columns":2,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[{"id":"01a095c3-5502-7270-b342-512355ccfc63","hidden":false,"icon":"","iconColor":"","name":"Patient care","proficiency":"","level":0,"keywords":[]},{"id":"01a095c5-98d5-70ec-ac41-4ae8982e4645","hidden":false,"icon":"","iconColor":"","name":"Clinical Research","proficiency":"","level":0,"keywords":[]},{"id":"01a095c7-3f22-7576-93c8-08da149a4d12","hidden":false,"icon":"","iconColor":"","name":"Scientific and academic writing","proficiency":"","level":0,"keywords":[]},{"id":"01a095c8-0694-7737-935e-47fedae20a3b","hidden":false,"icon":"","iconColor":"","name":"Data analysis and visualization","proficiency":"","level":0,"keywords":[]}],"keywordLayout":"inline","layout":"default"},"languages":{"title":"","icon":"translate","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"interests":{"title":"","icon":"football","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"awards":{"title":"","icon":"trophy","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"certifications":{"title":"","icon":"certificate","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[{"id":"01a17d72-6050-72ac-a843-a24ea0086f56","hidden":false,"title":"Basic Life Support (BLS)","issuer":"American Heart Association","date":"Oct 2026","dates":{"start":"2026-10","end":null,"present":false},"website":{"url":"https://ecards.heart.org/student/eCards?cid=12178E97-6A48-46A0-B517-A050BF427438","label":"","inlineLink":true},"description":"<p data-resume-whitespace=\"preserve\">Basic Life Support (BLS) for healthcare professionals trains participants to promptly recognize several life-threatening emergencies, give high-quality CPR, deliver appropriate ventilations and provide early use of an AED.&nbsp;<\/p><p data-resume-whitespace=\"preserve\"><\/p>"},{"id":"01a095cb-88bf-7555-811b-0384db6732c7","hidden":false,"title":"Scientific Computing with Python","issuer":"freeCodeCamp","date":"May 2024","dates":{"start":"2024-05","end":null,"present":false},"website":{"url":"https://www.freecodecamp.org/certification/neshkumar/scientific-computing-with-python-v7","label":"","inlineLink":true},"description":"<p data-resume-whitespace=\"preserve\">Developer certification covering approximately 300 hours of coursework, focused on scientific computing and Python.<\/p>"},{"id":"01a095cf-6ad7-715b-9734-f76b0a692f9f","hidden":false,"title":"Writing in the Sciences","issuer":"Stanford University, offered through Coursera","date":"Sep 2023","dates":{"start":"2023-09","end":null,"present":false},"website":{"url":"https://www.coursera.org/verify/CNSZ24A7YVJF","label":"","inlineLink":true},"description":"<p data-resume-whitespace=\"preserve\">Online non-credit course focused on scientific and academic writing.<\/p>"},{"id":"01a095d1-276b-71bd-aba6-fa076761ab39","hidden":false,"title":"Data Analysis with Python","issuer":"freeCodeCamp","date":"Jul 2023","dates":{"start":"2023-07","end":null,"present":false},"website":{"url":"https://www.freecodecamp.org/certification/neshkumar/data-analysis-with-python-v7","label":"","inlineLink":true},"description":"<p data-resume-whitespace=\"preserve\">Developer certification representing approximately 300 hours of coursework, focused on data analysis using Python.<\/p>"},{"id":"01a095d3-8597-764c-9d75-afa66f6f7273","hidden":false,"title":"Introduction to Systematic Review and Meta-Analysis","issuer":"Johns Hopkins University, offered through Coursera","date":"Jun 2023","dates":{"start":"2023-06","end":null,"present":false},"website":{"url":"http://coursera.org/verify/4V496C88WC5N","label":"","inlineLink":true},"description":"<p data-resume-whitespace=\"preserve\">Online non-credit course covering systematic review and meta-analysis methodology.<\/p>"}]},"publications":{"title":"","icon":"books","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]},"volunteer":{"title":"","icon":"hand-heart","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[{"id":"01a095c8-8738-72e9-9427-4e3f71ff57b0","hidden":false,"organization":"Cochrane Collaboration ","location":"","period":"Jun 2023 – Jun 2026","dates":{"start":"2023-06","end":"2026-06","present":false},"website":{"url":"","label":"","inlineLink":false},"description":"<p data-resume-whitespace=\"preserve\">As a Cochrane Member, I help categorize and summarize clinical trials and healthcare evidence, Provide feedback for systematic reviews, and help other researchers at Cochrane. <\/p>"}]},"references":{"title":"","icon":"phone","columns":1,"hidden":false,"showHeading":true,"keepTogether":false,"startOnNewPage":false,"items":[]}}}</script>
+
+<div class="wrap">
+  <header class="hero" id="hero">
+    <div>
+      <h1 id="name"></h1>
+      <p class="degree" id="degree"></p>
+      <p class="lede" id="lede"></p>
+      <div class="contacts" id="contacts"></div>
+    </div>
+    <div class="eye-wrap" aria-hidden="true">
+      <svg class="eye" id="eye" viewBox="0 0 400 260" role="img">
+        <defs>
+          <clipPath id="almond"><path d="M14 130 Q200 -22 386 130 Q200 282 14 130Z"/></clipPath>
+          <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0.35" stop-color="var(--iris)" stop-opacity=".55"/>
+            <stop offset="1" stop-color="var(--iris)"/>
+          </radialGradient>
+        </defs>
+        <path d="M14 130 Q200 -22 386 130 Q200 282 14 130Z" fill="var(--sclera)"/>
+        <g clip-path="url(#almond)">
+          <g class="iris" id="iris">
+            <circle cx="200" cy="130" r="84" fill="url(#irisGrad)"/>
+            <g id="fibres" stroke="var(--pupil)" stroke-opacity=".22" stroke-width="1.4"></g>
+            <circle cx="200" cy="130" r="84" fill="none" stroke="var(--pupil)" stroke-opacity=".7" stroke-width="5"/>
+            <circle class="pupil" id="pupil" cx="200" cy="130" r="32" fill="var(--pupil)"/>
+            <circle cx="224" cy="104" r="11" fill="#fff" fill-opacity=".9"/>
+            <circle cx="180" cy="158" r="5" fill="#fff" fill-opacity=".5"/>
+          </g>
+          <path d="M-10 -10 H410 V130 Q200 -22 -10 130Z" fill="var(--bg)" opacity="0"/>
+        </g>
+        <path d="M14 130 Q200 -22 386 130 Q200 282 14 130Z" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M40 92 Q200 -52 360 92" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+      </svg>
+    </div>
+  </header>
+
+  <main id="main"></main>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  var DATA;
+  try { DATA = JSON.parse(document.getElementById('resume-data').textContent); }
+  catch(e){ document.body.insertAdjacentHTML('afterbegin','<p style="padding:24px">The resume data could not be read.</p>'); return; }
+
+  var S = DATA.sections || {}, B = DATA.basics || {};
+  function txt(html){
+    var d = new DOMParser().parseFromString(html || '', 'text/html');
+    var t = (d.body.textContent || '').replace(/\u00a0/g,' ').replace(/\s+/g,' ').trim();
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  }
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null && text !== '') n.textContent = text;
+    return n;
+  }
+  function link(text, href){
+    var a = el('a', '', text); a.href = href;
+    if (/^https?:/.test(href)){ a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    return a;
+  }
+  function visible(sec){ return ((sec && sec.items) || []).filter(function(i){ return !i.hidden; }); }
+  function section(title, id){
+    var s = el('section'); s.id = id;
+    s.appendChild(el('h2', '', title));
+    var body = el('div'); s.appendChild(body);
+    document.getElementById('main').appendChild(s);
+    return body;
+  }
+
+  /* hero */
+  document.getElementById('name').textContent = B.name || '';
+  document.getElementById('degree').textContent = B.headline || '';
+  var exp = visible(S.experience);
+  var current = exp.filter(function(e){ return e.dates && e.dates.present; })[0] || exp[0];
+  if (current) document.getElementById('lede').textContent = current.position + ' at ' + current.company + '.';
+  var c = document.getElementById('contacts');
+  if (B.email) c.appendChild(link(B.email, 'mailto:' + B.email));
+  if (B.phone) c.appendChild(link(B.phone, 'tel:' + B.phone.replace(/\s/g,'')));
+  (B.customFields || []).forEach(function(f){ if (f.link) c.appendChild(link('LinkedIn', f.link)); });
+  if (B.location) c.appendChild(el('span', '', B.location));
+  document.title = (B.name || 'Resume') + (B.headline ? ', ' + B.headline : '');
+
+  /* about */
+  if (DATA.summary && !DATA.summary.hidden && txt(DATA.summary.content)){
+    section('About', 'about').appendChild(el('p', 'about', txt(DATA.summary.content)));
+  }
+
+  /* experience */
+  if (exp.length){
+    var eb = section('Experience', 'experience');
+    exp.forEach(function(e){
+      var it = el('article', 'item');
+      it.appendChild(el('h3', '', e.position));
+      it.appendChild(el('p', 'org', e.company));
+      var m = el('div', 'meta');
+      [e.period, e.location].forEach(function(t){ if (t) m.appendChild(el('span', '', t)); });
+      it.appendChild(m);
+      var d = txt(e.description);
+      if (d) it.appendChild(el('p', 'desc', d));
+      if (e.roles && e.roles.length){
+        var ul = el('ol', 'rot');
+        e.roles.forEach(function(r){
+          var li = el('li', /ophthalm/i.test(r.position) ? 'focus' : '');
+          li.appendChild(el('b', '', r.position));
+          li.appendChild(el('small', '', r.period));
+          ul.appendChild(li);
+        });
+        it.appendChild(ul);
+        it.appendChild(el('p', 'rot-note', 'Rotations, in order. Ophthalmology is the field I want to train in.'));
+      }
+      eb.appendChild(it);
+    });
+  }
+
+  /* education */
+  var edu = visible(S.education);
+  if (edu.length){
+    var edb = section('Education', 'education');
+    edu.forEach(function(e){
+      var it = el('article', 'item');
+      it.appendChild(el('h3', '', e.degree + (e.area ? ', ' + e.area : '')));
+      it.appendChild(el('p', 'org', e.school));
+      var m = el('div', 'meta');
+      if (e.period) m.appendChild(el('span', '', e.period));
+      if (e.grade) m.appendChild(el('span', '', 'Grade: ' + e.grade));
+      it.appendChild(m);
+      var d = txt(e.description); if (d) it.appendChild(el('p', 'desc', d));
+      edb.appendChild(it);
+    });
+  }
+
+  /* certifications */
+  var certs = visible(S.certifications);
+  if (certs.length){
+    var cb = section('Certifications', 'certifications');
+    certs.forEach(function(x){
+      var row = el('article', 'cert');
+      var head = el('div');
+      head.appendChild(el('h3', '', x.title));
+      head.appendChild(el('p', 'org', x.issuer));
+      row.appendChild(head);
+      var side = el('div', 'side');
+      side.appendChild(el('span', '', x.date));
+      if (x.website && x.website.url) side.appendChild(link('Verify', x.website.url));
+      row.appendChild(side);
+      var d = txt(x.description); if (d) row.appendChild(el('p', 'desc', d));
+      cb.appendChild(row);
+    });
+  }
+
+  /* skills */
+  var sk = visible(S.skills);
+  if (sk.length){
+    var sb = section('Skills', 'skills'), ul = el('ul', 'skills');
+    sk.forEach(function(s){ ul.appendChild(el('li', '', s.name)); });
+    sb.appendChild(ul);
+  }
+
+  /* volunteering */
+  var vol = visible(S.volunteer);
+  if (vol.length){
+    var vb = section('Volunteering', 'volunteer');
+    vol.forEach(function(v){
+      var it = el('article', 'item');
+      it.appendChild(el('h3', '', (v.organization || '').trim()));
+      var m = el('div', 'meta');
+      [v.period, v.location].forEach(function(t){ if (t) m.appendChild(el('span', '', t)); });
+      it.appendChild(m);
+      var d = txt(v.description); if (d) it.appendChild(el('p', 'desc', d));
+      vb.appendChild(it);
+    });
+  }
+
+  document.getElementById('foot').textContent = (B.name || '') + (B.location ? ', ' + B.location : '');
+
+  /* eye */
+  var svg = document.getElementById('eye'), iris = document.getElementById('iris'),
+      pupil = document.getElementById('pupil'), fib = document.getElementById('fibres');
+  var NS = 'http://www.w3.org/2000/svg', lines = '';
+  for (var i = 0; i < 64; i++){
+    var a = i / 64 * Math.PI * 2, r1 = 36 + (i % 3) * 4, r2 = 80 - (i % 4) * 4;
+    lines += '<line x1="' + (200 + Math.cos(a) * r1).toFixed(1) + '" y1="' + (130 + Math.sin(a) * r1).toFixed(1) +
+             '" x2="' + (200 + Math.cos(a) * r2).toFixed(1) + '" y2="' + (130 + Math.sin(a) * r2).toFixed(1) + '"/>';
+  }
+  fib.innerHTML = lines;
+  function look(x, y){
+    var b = svg.getBoundingClientRect();
+    var cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+    var dx = x - cx, dy = y - cy, dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    var reach = Math.min(1, dist / (b.width * .8));
+    var scale = b.width / 400;
+    var ox = dx / dist * reach * 62, oy = dy / dist * reach * 26;
+    iris.style.transform = 'translate(' + ox.toFixed(1) + 'px,' + oy.toFixed(1) + 'px)';
+    pupil.setAttribute('r', (40 - Math.min(1, dist / (b.width * 1.2)) * 14).toFixed(1));
+  }
+  window.addEventListener('pointermove', function(e){ look(e.clientX, e.clientY); });
+  window.addEventListener('pointerdown', function(e){ look(e.clientX, e.clientY); pupil.setAttribute('r', 20); });
+  window.addEventListener('pointerup', function(){ pupil.setAttribute('r', 32); });
+})();
+</script>
+</body>
+</html>
